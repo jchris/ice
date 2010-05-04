@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interactive CouchApp Editor</title>
+    <link rel="stylesheet" href="style/main.css" type="text/css">
+  </head>
+  <body>
+    <div id="account"></div>
+
+    <h1>Interactive CouchApp Editor</h1>
+
+    <div id="profile"></div>
+    <div id="sidebar"></div>
+    <div id="editor"></div>
+  </body>
+  <script src="vendor/couchapp/loader.js"></script>
+  <script src="vendor/couchapp/jquery.pathbinder.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    $.couch.app(function(app) {
+      $("#account").evently("account", app);
+
+      // todo alternate profile widget on edit page
+      // $("#profile").evently("profile", app);
+      // $.evently.connect("#account","#profile", ["loggedIn","loggedOut"]);
+      
+      // load the doc to edit
+      var parts = document.location.search.split("id=").pop().replace(/^\//,'').split("/");
+      db = parts.shift();
+      id = parts.join("/");
+
+      $.couch.db(db).openDoc(id, {
+        success : function(doc) {
+          $("#sidebar").evently("sidebar", app, [db, doc]);
+          $("#editor").evently("editor", app, [doc]);
+          $.pathbinder.begin("/")
+        }      
+    });
+  });
+  </script>
+</html>
