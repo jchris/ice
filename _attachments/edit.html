@@ -24,7 +24,7 @@
       // $.evently.connect("#account","#profile", ["loggedIn","loggedOut"]);
       
       // load the doc to edit
-      var parts = document.location.search.split("id=").pop().replace(/^\//,'').split("/");
+      var parts = decodeURIComponent(document.location.search.split("id=").pop()).replace(/^\//,'').split("/");
       db = parts.shift();
       id = parts.join("/");
 
