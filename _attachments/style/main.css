@@ -28,6 +28,10 @@ h1 {
   float:left;
 }
 
+#editor .edit {
+  min-height:300px;
+}
+
 #sidebar {
   border:4px solid #dfd;
   padding:8px;
