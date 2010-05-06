@@ -31,10 +31,14 @@
       $.couch.db(db).openDoc(id, {
         success : function(doc) {
           $("#sidebar").evently("sidebar", app, [db, doc]);
-          $("#editor").evently("editor", app, [doc]);
+          $("#editor").evently("editor", app);
+          $$("#editor").app.doc = doc;
           $.pathbinder.begin("/")
         }      
+      });
     });
-  });
+    function code_frame(name) {
+      alert("cf "+name);
+    };
   </script>
 </html>
