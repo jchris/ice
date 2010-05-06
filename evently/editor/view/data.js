@@ -3,5 +3,5 @@ function(e, params) {
   return {
     name : name,
     docid : ddoc._id
-  }
+  };
 };

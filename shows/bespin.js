@@ -11,7 +11,7 @@ function(doc, req) {
   }
   var Mustache = require("lib/mustache");
   return Mustache.to_html(this.templates.bespin, {
-    code : JSON.stringify(target),
+    code : JSON.stringify(target || ""),
     format : format
   });
 };
