@@ -5,12 +5,18 @@ body {
   padding:4px;
 }
 
-h1 {
+h1, h2 {
   margin-top:0;
 }
 
 #account {
   float:right;
+}
+
+iframe {
+  border:none;
+  width:95%;
+  height:420px;
 }
 
 #profile {
@@ -30,6 +36,10 @@ h1 {
 
 #editor .edit {
   min-height:300px;
+}
+
+#editor form {
+  float:right;
 }
 
 #sidebar {

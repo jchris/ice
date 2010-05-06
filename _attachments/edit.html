@@ -3,7 +3,6 @@
   <head>
     <title>Interactive CouchApp Editor</title>
     <link rel="stylesheet" href="style/main.css" type="text/css">
-    <link href="vendor/bespin/BespinEmbedded.css" type="text/css" rel="stylesheet">
   </head>
   <body>
     <div id="account"></div>
@@ -15,16 +14,8 @@
     <div id="editor"></div>
   </body>
   <script src="vendor/couchapp/loader.js"></script>
-  <script src="vendor/bespin/BespinEmbedded.js"></script>
   <script src="vendor/couchapp/jquery.pathbinder.js"></script>
   <script type="text/javascript" charset="utf-8">
-
-    $.fn.bespin = function() {
-      $(this).each(function() {
-        tiki.require('embedded').useBespin(this);
-      });
-    };
-
     $.couch.app(function(app) {
       $("#account").evently("account", app);
 
@@ -44,7 +35,6 @@
           $.pathbinder.begin("/")
         }      
     });
-    
   });
   </script>
 </html>

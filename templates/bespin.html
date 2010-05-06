@@ -1,0 +1,21 @@
+<link href="../../../vendor/bespin/BespinEmbedded.css" type="text/css" rel="stylesheet">
+<style type="text/css">
+    .bespin {
+        width: 95%;
+        height: 400px;
+    }
+</style>
+<script src="../../../vendor/bespin/BespinEmbedded.js"></script>
+<body>
+<div id="edit" class="bespin" data-bespinoptions='{ "stealFocus": true, "syntax": "{{format}}" }'></div>
+<script type="text/javascript" charset="utf-8">
+  var node, code = {{{code}}};
+  window.onBespinLoad = function() {
+    node = document.getElementById("edit");
+    node.bespin.value = code;
+  };
+
+  function getCode() {
+    return node.bespin.value;
+  };
+</script>

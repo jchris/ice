@@ -1,1 +1,12 @@
 <h2>Edit Evently widget: {{name}}</h2>
+
+<ul>
+  {{#events}}
+  <li>
+    <h3>{{event}}</h3>
+    <h4>Mustache</h4>
+    <iframe name="reduce" src="_show/bespin/{{docid}}?format=html&path=evently.{{name}}.{{event}}.mustache"></iframe>
+  </li>
+  {{/events}}
+</ul>
+
