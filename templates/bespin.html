@@ -1,21 +1,26 @@
 <link href="../../../vendor/bespin/BespinEmbedded.css" type="text/css" rel="stylesheet">
 <style type="text/css">
-    .bespin {
-        width: 95%;
-        height: 400px;
+    #edit {
+        width: 100%;
+        height: 320px;
     }
 </style>
 <script src="../../../vendor/bespin/BespinEmbedded.js"></script>
-<body>
-<div id="edit" class="bespin" data-bespinoptions='{ "stealFocus": true, "syntax": "{{format}}" }'></div>
+<div id="edit"></div>
 <script type="text/javascript" charset="utf-8">
-  var node, code = {{{code}}};
-  window.onBespinLoad = function() {
-    node = document.getElementById("edit");
-    node.bespin.value = code;
+SC.ready(function() {
+  var edit = document.getElementById("edit");
+  var besp = tiki.require('embedded').useBespin(edit);
+  window.setCode = function(st) {
+    return besp.value = st;
+  };  
+  window.getCode = function() {
+    return besp.value;
   };
-
-  function getCode() {
-    return node.bespin.value;
+  window.onCodeChange = function(fun) {
+    besp.addEventListener('textChange', function() {
+      fun(besp.value);
+    });
   };
+});
 </script>
