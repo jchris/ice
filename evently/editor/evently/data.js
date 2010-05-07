@@ -9,6 +9,6 @@ function(e, params) {
   return {
     name : name,
     events : events,
-    docid : ddoc._id
+    rand : Math.random().toString().split(".").pop()
   }
 };
