@@ -4,8 +4,16 @@
   {{#events}}
   <li>
     <h3>{{event}}</h3>
+    <h4>Path</h4>
+    <div class="edit" data-path="evently.{{name}}.{{event}}.path"></div>
+    <h4>Before</h4>
+    <div class="edit" data-path="evently.{{name}}.{{event}}.before"></div>
     <h4>Mustache</h4>
     <div class="edit" data-path="evently.{{name}}.{{event}}.mustache"></div>
+    <h4>Data</h4>
+    <div class="edit" data-path="evently.{{name}}.{{event}}.data"></div>
+    <h4>After</h4>
+    <div class="edit" data-path="evently.{{name}}.{{event}}.after"></div>
   </li>
   {{/events}}
 </ul>
