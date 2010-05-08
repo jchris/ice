@@ -8,34 +8,18 @@
 <script src="vendor/bespin/BespinEmbedded.js"></script>
 <div id="edit"></div>
 <script type="text/javascript" charset="utf-8">
-SC.ready(function() {
-  var edit = document.getElementById("edit");
-  var besp = tiki.require('embedded').useBespin(edit);
-  var exports = {};
-  exports.SC = SC;
-  exports.setCode = function(st) {
-    return besp.value = st;
-  };  
-  exports.getCode = function() {
-    return besp.value;
-  };
-  exports.onCodeChange = function(fun) {
+  SC.ready(function() {
+    var edit = document.getElementById("edit");
+    var besp = tiki.require('embedded').useBespin(edit);
     besp.addEventListener('textChange', function() {
-      fun(besp.value);
+      // todo add name
+      window.parent.postMessage(besp.value, location.protocol+"//"+location.host);
     });
-  };
-  exports.clearEvents = function() {
-    besp.removeEventListener('textChange', function() {
-      fun(besp.value);
-    });
-  };
-  exports.honk = function() {
-    alert("honk");
-  };
-  window.getExports = function() {
-    return exports;
-  }
-});
-
+    window.addEventListener("message", function(e){
+      if (location.protocol+"//"+location.host == e.origin) {
+        besp.value = e.data;        
+      }
+    }, false);
+  });
 </script>
 <!-- todo move to vendor/bespin -->

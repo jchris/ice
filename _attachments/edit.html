@@ -16,7 +16,12 @@
   <script src="vendor/couchapp/loader.js"></script>
   <script src="vendor/couchapp/jquery.pathbinder.js"></script>
   <script type="text/javascript" charset="utf-8">
+  
     $.couch.app(function(app) {
+      window.addEventListener("message", function(e){
+        $.log("message", e.data, e);
+      }, false);
+      
       $("#account").evently("account", app);
 
       // todo alternate profile widget on edit page
