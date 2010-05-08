@@ -4,7 +4,7 @@ function(e) {
   var opts = {
     syntax : "js"
   };
-  $(".edit").each(function() {
+  $(".edit", this).each(function() {
     var t, c = ddoc, path = this.getAttribute('data-path').split('.');
     path.forEach(function(p) {t = c; c = c[p];});
     var top = path.pop();
