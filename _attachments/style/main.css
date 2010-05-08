@@ -50,8 +50,12 @@ ul {
 #sidebar {
   border:4px solid #dfd;
   padding:8px;
-  float:right;
+  float:left;
   width:30%;
+}
+
+a.blank {
+  color:#bbb;
 }
 
 /*#editor li {
