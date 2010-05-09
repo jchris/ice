@@ -8,7 +8,6 @@ function(e, params) {
   $.log(events)
   return {
     name : name,
-    events : events,
-    rand : Math.random().toString().split(".").pop()
+    path : ["evently",name,"event"].join('.')
   }
 };

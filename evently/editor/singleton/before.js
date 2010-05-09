@@ -4,12 +4,10 @@ function(e, params) {
     $(this).append($(''));
   }
   // load it with the path from the doc
-  var ps = params.path.split('.');
-  var ddoc = $$(this).app.doc;
-  
-  var t, c = ddoc, path = this.getAttribute('data-path').split('.');
+  var ps = params.path.split('.');  
+  var t, c = $$(this).app.doc;
   ps.forEach(function(p) {t = c; c = c[p];});
-  var top = path.pop();
-  bespin.value = c;
-  $("this")
+  var top = ps.pop();
+  $("#bespinwrap").empty().append($("<pre></pre>").text(c));
+  // bespin.value = c;
 };
