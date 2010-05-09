@@ -7,15 +7,6 @@
   <dt>Evently</dt>
     {{#evently}}
       <dd><a href="#/evently/{{name}}">{{name}}</a>
-        <dl>
-          {{#events}}
-            <dt>{{event}}</dt>
-            {{#fields}}
-              <dd><a {{#blank}}class="blank"{{/blank}} href="#/edit/evently.{{name}}.{{event}}.{{field}}">{{field}}</a></dd>
-            {{/fields}}
-            <pre>{{val}}</pre>
-          {{/events}}
-        </dl>
       </dd>
     {{/evently}}
   <dt>Shows</dt>

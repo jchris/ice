@@ -6,8 +6,13 @@ function(e, params) {
     });
   });
   $.log(events)
-  return {
+  var design = $$(this).app.require("lib/design");
+  
+  var v = {
     name : name,
-    path : ["evently",name,"event"].join('.')
-  }
+    evently : design.evently(ddoc.evently[name]),
+    path : ["evently",name,"event"].join('/')
+  };
+  $.log(v)
+  return v;
 };
