@@ -7,6 +7,6 @@ function(e, db, doc) {
     path : "/"+path,
     futonPath : futonPath,
     views : design.views(doc),
-    evently : design.evently(doc)
+    evently : design.eventlyAll(doc)
   }
 };

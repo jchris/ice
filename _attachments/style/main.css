@@ -55,13 +55,10 @@ ul {
   float:right;
 }
 
-dd {
-  float:left;
+#editor li {
+  float:left; margin:4px 8px;
 }
 
-dt {
-  clear:left;
-}
 
 
 #history {

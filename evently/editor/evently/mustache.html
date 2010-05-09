@@ -1,13 +1,15 @@
 <h2>Edit Evently widget: {{name}}</h2>
 
-<dl>
+<ul>
   {{#evently}}
-    <dt>{{name}}</dt>
-    {{#fields}}
-      <dd><a {{#blank}}class="blank"{{/blank}} href="#/edit/evently/{{name}}/{{event}}/{{field}}">{{field}}</a></dd>
-    {{/fields}}
-    <pre>{{val}}</pre>
+    <li>{{event}}
+      <ul>
+        {{#fields}}
+          <li><a {{#blank}}class="blank"{{/blank}} href="#/edit/evently/{{name}}/{{event}}/{{field}}">{{field}}</a></li>
+        {{/fields}}        
+      </ul>
+    </li>
   {{/evently}}
-</dl>
+</ul>
 
 
