@@ -1,1 +1,1 @@
-/evently/:name
+/evently/:path
