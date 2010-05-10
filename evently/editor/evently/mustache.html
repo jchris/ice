@@ -2,10 +2,13 @@
 
 <ul>
   {{#evently}}
-    <li>{{event}}
-      <ul>
+    <li><h3>{{event}}</h3>
+      <ul class="evently">
         {{#fields}}
-          <li><a {{#blank}}class="blank"{{/blank}} href="#/edit/evently/{{name}}/{{event}}/{{field}}">{{field}}</a></li>
+          <li><h4>{{field}}</h4>
+            <p><em>{{about}}</em></p>
+            <pre><code>{{value}}</code></pre>
+          </li>
         {{/fields}}        
       </ul>
     </li>
