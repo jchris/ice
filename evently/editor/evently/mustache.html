@@ -1,11 +1,13 @@
-<h2>Edit Evently widget: {{name}}</h2>
+<h2>evently.{{path}}</h2>
 
 <ul class="evently">
   {{#fields}}
-    <li class="editor">
+    <li class="editable {{#blank}} blank{{/blank}}">
       <h4>{{field}}</h4>
       <p><em>{{about}}</em></p>
-      <pre><code>{{value}}</code></pre>
+      {{#value}}
+        <pre><code>{{value}}</code></pre>
+      {{/value}}
     </li>
   {{/fields}}        
 </ul>

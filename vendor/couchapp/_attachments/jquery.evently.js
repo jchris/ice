@@ -23,7 +23,7 @@ function $$(node) {
   };
   $.forIn = forIn;
   function funViaString(fun) {
-    if (fun && fun.match && fun.match(/function/)) {
+    if (fun && fun.match && fun.match(/^function/)) {
       eval("var f = "+fun);
       if (typeof f == "function") {
         return function() {

@@ -59,8 +59,12 @@ ul {
   margin:4px 8px;
 }
 
-.editor:hover {
+.editable:hover {
   background:#ccc;
+}
+
+.blank {
+  color:#444;
 }
 
 code {
@@ -68,6 +72,7 @@ code {
 }
 pre {
   background:#aaa;
+  overflow:scroll;
 }
 
 #history {

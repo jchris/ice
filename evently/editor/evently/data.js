@@ -10,7 +10,7 @@ function(e, params) {
   // $.log(events)
   var design = $$(this).app.require("lib/design");
   var v = {
-    name : name,
+    path : params.path,
     fields : design.eventlyCodes(c)
   };
   // $.log(v);
