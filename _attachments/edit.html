@@ -3,35 +3,64 @@
   <head>
     <title>Interactive CouchApp Editor</title>
     <link rel="stylesheet" href="style/main.css" type="text/css">
+    <link href="vendor/bespin/BespinEmbedded.css" type="text/css" rel="stylesheet">
   </head>
   <body>
     <div id="account"></div>
 
     <h1>Interactive CouchApp Editor</h1>
 
-    <div id="profile"></div>
-    <div id="sidebar"></div>
+    <div id="docinfo"></div>
     <div id="editor"></div>
-    <div id="bespinwrap"></div>
+    <div id="bwrap"><div id="bespin"></div></div>
+    <div id="sidebar"></div>
     <div id="history"></div>
   </body>
   <script src="vendor/couchapp/loader.js"></script>
   <script src="vendor/couchapp/jquery.pathbinder.js"></script>
+  <script src="vendor/bespin/BespinEmbedded.js"></script>
   <script type="text/javascript" charset="utf-8">
-  
+    
+    function useBespin(node, opts) {
+    };
+    
     $.couch.app(function(app) {
-      window.addEventListener("message", function(e){
-        $.log("message", e.data, e);
-      }, false);
+      
+      function updateDoc(doc, path, c) {
+        if (typeof path == "string") {
+          path = path.split('.');
+        }
+        var k, parent, d = doc;
+        path.forEach(function(p) {
+          parent = d;
+          d = d[p];
+        });
+        parent[path.pop()] = c;
+        $("#docinfo").trigger("dirty",[doc]);
+      };
+      
+      var bmatch, bpath, bcode, besp = tiki.require('embedded').useBespin($("#bespin")[0]);
+      besp.addEventListener('textChange', function() {
+        bcode=besp.value;
+        updateDoc(app.doc, bpath, bcode);
+        $(bmatch).text(bcode);
+      });
       
       $("#account").evently("account", app);
 
-      $("#bespinwrap").evently("bespinwrap", app);
+      $(".editable").live("click", function() {
+        if ($(this).hasClass("active")) return;
+        $(".editable").removeClass("active");
+        $(this).addClass("active");
+        // update bespin
+        bmatch = $("code",this)[0];
+        bpath = $(bmatch).attr("data-path");
+        var code = decodeURIComponent($(bmatch).attr("data-value"));
+        besp.value = code;
+        // $("#bespin").appendTo(this);
+        besp.dimensionsChanged();
+      });
 
-      // todo alternate profile widget on edit page
-      // $("#profile").evently("profile", app);
-      // $.evently.connect("#account","#profile", ["loggedIn","loggedOut"]);
-      
       // load the doc to edit
       var parts = decodeURIComponent(document.location.search.split("id=").pop()).replace(/^\//,'').split("/");
       db = parts.shift();
@@ -39,6 +68,7 @@
 
       $.couch.db(db).openDoc(id, {
         success : function(doc) {
+          $("#docinfo").evently("docinfo", app, [doc]);
           $("#sidebar").evently("sidebar", app, [db, doc]);
           $("#editor").evently("editor", app);
           $$("#editor").app.doc = doc;

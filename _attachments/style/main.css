@@ -24,27 +24,33 @@ ul {
   list-style-type: none;
 }
 
-#profile {
+#docinfo, #profile {
   border:4px solid #edd;
   background:#fee;
   padding:8px;
   margin-bottom:8px;
 }
 
+#docinfo.dirty {
+  border:4px solid #474;
+}
+
 #editor {
   border:4px solid #dde;
   background:#eef;
   padding:8px;
-  width:60%;
+  width:44%;
   float:left;
+  overflow:scroll;
 }
 
-#bespinwrap {
-  background:#ddddf4;
-  border:4px solid #dde;
-  padding:8px;
+#bespin {
+  width:720px;
+  height:320px;
+}
+
+#bwrap {
   float:right;
-  width:60%;
 }
 
 #editor .edit {
@@ -72,7 +78,6 @@ code {
 }
 pre {
   background:#aaa;
-  overflow:scroll;
 }
 
 #history {
@@ -86,7 +91,7 @@ pre {
 #sidebar {
   border:4px solid #dfd;
   padding:8px;
-  float:left;
+  float:right;
   width:30%;
 }
 

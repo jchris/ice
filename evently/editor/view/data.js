@@ -4,6 +4,8 @@ function(e, params) {
   return {
     path : ["views",name].join('.'), 
     map : ddoc.views[name].map, 
-    reduce : ddoc.views[name].reduce
+    urlmap : encodeURIComponent(ddoc.views[name].map),
+    reduce : ddoc.views[name].reduce,
+    urlreduce : encodeURIComponent(ddoc.views[name].reduce)
   };
 };

@@ -198,7 +198,8 @@ function $$(node) {
         });
       }
       if (h.after) {
-        funViaString(h.after).apply(me, args);
+        runIfFun(me, h.after, args);
+        // funViaString(h.after).apply(me, args);
       }
     }    
   };

@@ -1,13 +1,12 @@
 <h2>{{path}}</h2>
-<div class="editor">
+<div class="editable">
 <h4>Map</h4>
 <p><em>The map function sorts and filters documents.</em></p>
-<pre><code>{{map}}</code></pre>
+<pre><code data-path="{{path}}.map" data-value="{{urlmap}}">{{map}}</code></pre>
 </div>
 
-<div class="editor">
+<div class="editable">
 <h4>Reduce</h4>
 <p><em>The reduce function agreggates, counts, and averages the map values.</em></p>
-<pre><code>{{reduce}}</code></pre>
+<pre><code data-path="{{path}}.reduce" data-value="{{urlreduce}}">{{reduce}}</code></pre>
 </div>
-

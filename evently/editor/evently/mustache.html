@@ -6,7 +6,7 @@
       <h4>{{field}}</h4>
       <p><em>{{about}}</em></p>
       {{#value}}
-        <pre><code>{{value}}</code></pre>
+        <pre><code data-path="evently.{{path}}.{{field}}" data-format="{{format}}" data-value="{{urlval}}">{{value}}</code></pre>
       {{/value}}
     </li>
   {{/fields}}        
