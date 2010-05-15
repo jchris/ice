@@ -1,4 +1,4 @@
-## Interactive Couch Editor
+## Ice Couch Editor
 
 This is a CouchApp to edit CouchApps.
 
