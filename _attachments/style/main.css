@@ -43,15 +43,6 @@ ul {
   float:left;
 }
 
-#bespin {
-  width:720px;
-  height:320px;
-}
-
-#bwrap {
-  float:right;
-}
-
 #editor .edit {
   min-height:300px;
 }
