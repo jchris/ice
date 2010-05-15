@@ -6,10 +6,10 @@
       <h4>{{field}}</h4>
       <p><em>{{about}}</em></p>
       {{#value}}
-        <pre><code data-path="evently.{{path}}.{{field}}" data-format="{{format}}" data-value="{{urlval}}">{{value}}</code></pre>
+        <textarea spellcheck="false" data-path="evently.{{path}}.{{field}}" data-format="{{format}}" data-value="{{urlval}}" rows="{{height}}">{{value}}</textarea>
       {{/value}}
     </li>
-  {{/fields}}        
+  {{/fields}}
 </ul>
 
 

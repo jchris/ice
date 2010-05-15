@@ -35,6 +35,15 @@
       
       $("#account").evently("account", app);
 
+      $("textarea").live("keypress", function() {
+        var self = this;
+        setTimeout(function() {
+          var val = $(self).val()
+          var path = $(self).attr("data-path");
+          updateDoc(app.doc, path, val);
+        },10);
+      });
+
       // load the doc to edit
       var parts = decodeURIComponent(document.location.search.split("id=").pop()).replace(/^\//,'').split("/");
       db = parts.shift();
@@ -50,8 +59,5 @@
         }      
       });
     });
-    function code_frame(name) {
-      alert("cf "+name);
-    };
   </script>
 </html>
